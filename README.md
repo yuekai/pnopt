@@ -42,7 +42,7 @@ Smooth and nonsmooth functions must satisfy these conventions:
 
 PNOPT is compatible with the function generators included with TFOCS that accept vector arguments so users can use these generators to create commonly used smooth and nonsmooth functions. Please refer to section 3 of the [TFOCS user guide](https://github.com/cvxr/TFOCS/raw/master/userguide.pdf) for details.
 
-## Demo (l1-regularized logistic regression on synthetic data:)
+## Demo: sparse logistic regression
 
 The demo requires `LogisticLoss` from [PMTK](https://github.com/probml/pmtk3) and `prox_l1` from TFOCS.
 
