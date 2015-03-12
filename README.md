@@ -32,9 +32,9 @@ PNOPT returns:
 * `f`: the optimal value,
 * `output`: a structure containing information collected during the execution of PNOPT.
 
-### Creating the smooth and nonsmooth functions
+### Creating smooth and nonsmooth functions
 
-Smooth and nonsmooth functions must satisty these conventions:
+Smooth and nonsmooth functions must satisfy these conventions:
 
 * `smoothF(x)` should return the function value and gradient at `x`, i.e. `[ fx, gradx ] = smoothF(x)`,
 * `nonsmoothF(x)` should return function value at `x`, i.e. `f_x = nonsmoothF(x)`,
@@ -42,9 +42,9 @@ Smooth and nonsmooth functions must satisty these conventions:
 
 PNOPT is compatible with the function generators included with TFOCS that accept vector arguments so users can use these generators to create commonly used smooth and nonsmooth functions. Please refer to section 3 of the [TFOCS user guide](https://github.com/cvxr/TFOCS/raw/master/userguide.pdf) for details.
 
-## Demo
+## Demo (l1-regularized logistic regression on synthetic data:)
 
-l1-regularized logistic regression on synthetic data:
+The demo requires `LogisticLoss` from [PMTK](https://github.com/probml/pmtk3) and `prox_l1` from TFOCS.
 
     n = 100;
     p = 200;
