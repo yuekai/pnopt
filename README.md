@@ -6,7 +6,7 @@ PNOPT (pronounced pee-en-opt) is a MATLAB package that uses proximal Newton-type
 
 Unpack the archive and add the `yuekai-PNOPT-xxxxxxx` directory to your MATLAB path, e.g.
 
-  addpath /home/yuekai/matlab/yuekai-PNOPT-xxxxxxx/
+    addpath /home/yuekai/matlab/yuekai-PNOPT-xxxxxxx/
 
 We suggest users also install [TFOCS](http://cvxr.com/tfocs/) (pronounced tee-fox), a MATLAB package that uses first-order methods to minimize composite functions (among other things).
 
@@ -14,7 +14,7 @@ We suggest users also install [TFOCS](http://cvxr.com/tfocs/) (pronounced tee-fo
 
 PNOPT has the calling sequence:
 
-  [ x, f, output ] = pnopt( smoothF, nonsmoothF, x0, options );
+    [ x, f, output ] = pnopt( smoothF, nonsmoothF, x0, options );
 
 The required input arguments are:
 * `smoothF`: a smooth function,
@@ -46,25 +46,25 @@ PNOPT is compatible with the function generators included with TFOCS that accept
 
 l1-regularized logistic regression on synthetic data:
 
-  n = 100;
-  p = 200;
-  X = randn(n,p);
-  y = sign( X * ( (rand(p,1) > .5) .* randn(p,1) ) + randn(n,1) );
+    n = 100;
+    p = 200;
+    X = randn(n,p);
+    y = sign( X * ( (rand(p,1) > .5) .* randn(p,1) ) + randn(n,1) );
 
-  logistic_obj = @(w) LogisticLoss(w,X,y);
-  lambda = 10;
-  l1_pen  = prox_l1(lambda);
-  w0 = zeros(p,1);
-  pnopt_options = pnopt_optimset( 'optim', 1e-8 );
+    logistic_obj = @(w) LogisticLoss(w,X,y);
+    lambda = 10;
+    l1_pen  = prox_l1(lambda);
+    w0 = zeros(p,1);
+    pnopt_options = pnopt_optimset( 'optim', 1e-8 );
 
-  [ w, f ] = pnopt( logistic_obj, l1_pen, w0, pnopt_options );
+    [ w, f ] = pnopt( logistic_obj, l1_pen, w0, pnopt_options );
 
-  ================================================================
-                   PNOPT v. 0.9.1 (Dec. 15, 2013)
-  ================================================================
-           Fun.    Prox     Step len.     Obj. val.        Optim.
-  ----------------------------------------------------------------
-     0 |      1       0                  6.9315e+01    4.4998e+00
-    10 |     11      49    1.0000e+00    6.7911e+01    1.8744e-03
-    13 |     14      66    1.0000e+00    6.7911e+01    2.0037e-04
-  ----------------------------------------------------------------
+    ================================================================
+                     PNOPT v. 0.9.1 (Dec. 15, 2013)
+    ================================================================
+             Fun.    Prox     Step len.     Obj. val.        Optim.
+    ----------------------------------------------------------------
+       0 |      1       0                  6.9315e+01    4.4998e+00
+      10 |     11      49    1.0000e+00    6.7911e+01    1.8744e-03
+      13 |     14      66    1.0000e+00    6.7911e+01    2.0037e-04
+    ----------------------------------------------------------------
