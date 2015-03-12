@@ -44,6 +44,8 @@ PNOPT is compatible with the function generators included with TFOCS that accept
 
 ## Demo
 
+l1-regularized logistic regression on synthetic data:
+
   n = 100;
   p = 200;
   X = randn(n,p);
